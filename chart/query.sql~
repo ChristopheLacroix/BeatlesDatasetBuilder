@@ -1,0 +1,12 @@
+use honr3310;
+
+("Penny Lane","And I Love Her","Octopus's Garden","My Sweet Lord","Being For The Benefit Of Mr. Kite","Lucy In The Sky With Diamonds","Cry Baby Cry","Come And Get It","For No One","Fixing A Hole","For You Blue","Happiness is A WARM GUN","Here, There, and Everywhere","Hey Bulldog","I Me Mine","I Want You (She's So Heavy)","If I Fell","Only A Northern Song","Piggies","Savoy Truffle","Something","Strawberry Files Forever","Sun King","While My Guitar Gently Weeps","Doctor Robert","Sgt. Peppers Reprise","Martha My Dear","You Never Give Me Your Money","Sun King","The End","While My Guitar Gently Weeps","Birthday","I'll Be Back","I'm Happy Just To Dance With You","The Fool On The Hill","Your Mother Should Know","Lovely Rita","We Can Work It Out and Not A Second Time","Things We Said Today","Good Day Sunshine","Another Girl","Drive My Car","You're Gonna Lose THat Girl")
+
+select mode, avg(negative_emotions), avg(positive_emotions) from Song group by 1;
+
+select avg(negative_emotions) from Song;
+select avg(positive_emotions) from Song;
+
+select count(*) from Song where mode="minor";
+select count(*) from Song where mode="major";
+select count(*) from Song;

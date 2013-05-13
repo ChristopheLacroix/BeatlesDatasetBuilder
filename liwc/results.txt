@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>LIWC: Linguistic Inquiry and Word Count</title>
+<link href="styles/liwc.css" rel="stylesheet" type="text/css" />
+<link href="../jquery/themes/base/jquery.ui.all.css" rel="stylesheet" type='text/css' />
+<link href='styles/simplemodalbasic.css' rel='stylesheet' media='screen' type='text/css'/>
+<link href="styles/liwcmenu.css" rel="stylesheet" type="text/css" />
+
+<script type='text/javascript' src="../jquery/jquery-1.4.3.js"></script>
+<script type='text/javascript' src="../jquery/ui/jquery.ui.core.js"></script>
+<script type='text/javascript' src="../jquery/ui/jquery.ui.widget.js"></script>
+<script type='text/javascript' src='../jquery/js/basic.js'></script>
+<script type='text/javascript' src="../jquery/simplemodal/js/jquery.simplemodal.js"></script>
+
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/liwcfunctions.js"></script>
+
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+
+<body onload="MM_preloadImages('images/purchase_button_inv.gif','images/analyzewordsw2_inv.jpg','images/analyzewords_inv.gif')">
+<div id="container">
+  <h1>LIWC: Linguistic Inquiry and Word Count</h1>
+  <div id="banner"><img src="images/NewBanner.jpg" width="770" height="110" alt="LIWC banner" />
+    <ul id="liwc_menu" class="MenuBarHorizontal">
+      <li><a href="index.php">Home</a></li>
+      <li><a href="#">Dictionaries&nbsp;</a>
+			<ul>
+				<li><a href="#" class="dictionaries" id="where_to_find">Click here to find dictionaries in Win and Mac LIWC2007</a></li>
+				<li><div style="background-color:#FEFDCC;"><hr /><font color="blue">Information about Specific Dictionaries</font></div></li>
+				<li><a href="#" class="dictionaries" id="arabic_dic">Arabic</a></li>
+				<li><a href="#" class="dictionaries" id="chinese_dic">Chinese</a></li>
+				<li><a href="#" class="dictionaries" id="dutch_dic">Dutch</a></li>
+				<li><a href="#" class="dictionaries" id="english_dic">English</a></li>
+				<li><a href="#" class="dictionaries" id="french_dic">French</a></li>
+				<li><a href="#" class="dictionaries" id="german_dic">German</a></li>
+				<li><a href="#" class="dictionaries" id="italian_dic">Italian</a></li>
+				<li><a href="#" class="dictionaries" id="russian_dic">Russian</a></li>
+				<li><a href="#" class="dictionaries" id="serbian_dic">Serbian</a></li>
+				<li><a href="#" class="dictionaries" id="spanish_dic">Spanish</a></li>
+				<li><a href="#" class="dictionaries" id="turkish_dic">Turkish</a></li>
+			</ul>
+	  </li>
+      <li><a href="howliwcworks.php">How it Works</a></li>
+      <li><a href="tryonline.php">Try Online</a></li>
+<!--      <li><a href="#">Downloads</a></li> -->
+      <li><a href="javascript:void()" class="showContact">Contact Us</a></li>
+    </ul>
+  </div>
+  <div id="main_panel">
+ 	<div id="contactus" class="hiddendiv">
+		<fieldset>
+			<legend>Details of the message you wish to send us:</legend>
+		<form action="someplace.html" method="post" name="myContactForm">
+		<div id="contactFormResponse">
+			<table>
+				<tr>
+					<td><label for="fullname">Your Name:</label></td>
+					<td id="_fullname"></td>
+					<td><input type="text" class="textInput" name="fullname" id="fullname"></td>
+				</tr>
+				<tr>
+					<td><label for="subject">Subject:</label></td>
+					<td id="_subject"></td>
+					<td><input type="text" class="textInput" name="subject" id="subject"></td>
+				</tr>
+				<tr>
+					<td><label for="contactemail">Your Email:</label></td>
+					<td id="_contactemail"></td>
+					<td><input class="textInput" type="text" name="contactemail" id="contactemail" maxlength="255"></td>
+				</tr>
+				<tr>
+					<td><label for="message">Your Message:</label></td>
+					<td id="_message"></td>
+					<td><textarea  class="textInput" id="message" name="message" rows="5"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					</td>
+					<td>
+						<input type="button" id="cancelContact" class="formButton" value="Cancel" >&nbsp;&nbsp;&nbsp;
+						<input type="reset" class="formButton" value="Reset">
+						<input type="button" id="submitContactForm" class="formButton" value="Send">
+					</td>
+				</tr>
+			</table>
+		</div>	 <!-- end contactFormResponse -->
+		</form>
+		</fieldset>
+	</div>    <!-- end hiddendiv -->
+
+      <h2>LIWC Results</h2>
+      <p><em>Details of Writer:</em> 
+      
+      No Details      <br>
+<em>Date/Time:</em> 22 April 2013, 12:12 am</p>
+
+<table align="center">
+<tr>
+<th>LIWC dimension</th>
+<th>Your<br />data</th>
+<th>Personal<br />texts</th>
+<th>Formal<br />texts</th>
+</tr>
+<tr>
+<td>Self-references (I, me, my)</td>
+<td align="center">0.00</td>
+<td align="center">11.4</td>
+<td align="center">4.2</td>
+</tr>
+<tr>
+<td>Social words</td>
+<td align="center">0.00</td>
+<td align="center">9.5</td>
+<td align="center">8.0</td>
+</tr>
+<tr>
+<td>Positive emotions</td>
+<td align="center">40.00</td>
+<td align="center">2.7</td>
+<td align="center">2.6</td>
+</tr>
+<tr>
+<td>Negative emotions</td>
+<td align="center">0.00</td>
+<td align="center">2.6</td>
+<td align="center">1.6</td>
+</tr>
+<tr>
+<td>Overall cognitive words</td>
+<td align="center">0.00</td>
+<td align="center">7.8</td>
+<td align="center">5.4</td>
+</tr>
+<tr>
+<td>Articles (a, an, the)</td>
+<td align="center">0.00</td>
+<td align="center">5.0</td>
+<td align="center">7.2</td>
+</tr>
+<tr>
+<td>Big words (> 6 letters)</td>
+<td align="center">40.00</td>
+<td align="center">13.1</td>
+<td align="center">19.6</td>
+</tr>
+</table>
+<p>The text you submitted was 5 words in length.  <hr>
+<h3>Your writing:</h3>
+		<p>
+			testing sun bunnies happy bright
+
+		</p>
+
+</div>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<body onload="MM_preloadImages('images/analyzewords_inv.gif','images/version_comparison_inv.gif','images/dict_comparison_inv.gif')">
+  <div id="left_panel">
+    <div id="purchase_image"><a href="http://store.eSellerate.net/s.aspx?s=STR9088903316" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Purchase LIWC','','images/purchase_button_inv.gif',1)"><img src="images/purchase_button.gif" title="Takes you to the eSellerate eCommerce site for purchase" name="Purchase LIWC" width="150" height="50" border="0" id="Purchase LIWC" /></a></div>
+  <hr />
+  <div id="purchase_image"><a href="comparison.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('version_compare','','images/version_comparison_inv.gif',1)"><img src="images/version_comparison.gif" title="Compare LIWC2007 and LIWClite7" name="version_compare" width="150" height="50" border="0" id="version_compare" /></a></div>
+  <hr />
+  <div id="purchase_image"><a href="comparedicts.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('dict_compare','','images/dict_comparison_inv.gif',1)"><img src="images/dict_comparison.gif" alt="Campare LIWC2007 and LIWC2001 dictionaries" name="dict_compare" width="150" height="50" border="0" id="dict_compare" /></a></div>
+  <hr />
+  <div id="purchase_image">
+    <a href="http://www.analyzewords.com" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('AnalyzeWords','','images/analyzewords_inv.gif',1)"><img src="images/analyzewords.gif" title="Go to AnalyzeWords website" name="AnalyzeWords" width="150" height="50" border="0" id="AnalyzeWords" /></a>Experience the power of LIWC for twitter personality analysis <br /><br />
+     <a href="http://www.webhostingsearch.com/web-tools.php" title="Web Hosting
+Search - Best Word Count Tool"><img src="images/webtools2012.png"
+alt="Best Web Tool"></a>
+  </div>
+  </div>
+  <div id="footer">LIWC Inc.</div>
+</div>
+<script type="text/javascript">
+var MenuBar1 = new Spry.Widget.MenuBar("liwc_menu", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script>
+</body>
+</html>
+
